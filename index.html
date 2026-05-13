@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#151827" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Pocket Play" />
+    <title>Pocket Playground</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-label="Pocket Playground">
+      <section class="hero-card">
+        <p class="eyebrow">Touch toy for iPhone</p>
+        <h1>Pocket Playground</h1>
+        <p class="lede">Tap and drag the field to make colorful orbs bounce around your screen.</p>
+      </section>
+
+      <section class="play-card" aria-label="Interactive orb playground">
+        <canvas id="playground" aria-label="Interactive orb canvas"></canvas>
+        <div class="hint" id="hint">Tap or drag here</div>
+      </section>
+
+      <section class="controls" aria-label="Playground controls">
+        <button id="burstButton" type="button">Burst</button>
+        <button id="calmButton" type="button">Calm</button>
+        <button id="clearButton" type="button">Clear</button>
+      </section>
+
+      <section class="stats" aria-live="polite">
+        <span><strong id="orbCount">0</strong> orbs</span>
+        <span><strong id="energyLevel">0</strong>% energy</span>
+      </section>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>
