@@ -1,0 +1,172 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d1020;
+  --panel: rgba(255, 255, 255, 0.1);
+  --panel-strong: rgba(255, 255, 255, 0.16);
+  --text: #f7f7ff;
+  --muted: #bec4df;
+  --accent: #7cf7d4;
+  --accent-2: #ff8edb;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  font-family: Inter, ui-rounded, "SF Pro Rounded", "SF Pro Display", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(124, 247, 212, 0.22), transparent 28rem),
+    radial-gradient(circle at 85% 10%, rgba(255, 142, 219, 0.23), transparent 25rem),
+    linear-gradient(145deg, #080a15, var(--bg) 60%, #19112c);
+  color: var(--text);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-rows: auto minmax(18rem, 1fr) auto auto;
+  gap: 1rem;
+  width: min(100%, 31rem);
+  height: 100svh;
+  margin: 0 auto;
+  padding: max(1rem, env(safe-area-inset-top)) 1rem max(1rem, env(safe-area-inset-bottom));
+}
+
+.hero-card,
+.play-card,
+.controls,
+.stats {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(24px);
+}
+
+.hero-card {
+  padding: 1.1rem;
+  border-radius: 1.6rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 10vw, 3.5rem);
+  line-height: 0.9;
+}
+
+.lede {
+  max-width: 28rem;
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.play-card {
+  position: relative;
+  min-height: 20rem;
+  overflow: hidden;
+  border-radius: 2rem;
+}
+
+#playground {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hint {
+  position: absolute;
+  inset: auto 1rem 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: rgba(8, 10, 21, 0.54);
+  color: var(--muted);
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.hint.is-hidden {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  padding: 0.6rem;
+  border-radius: 1.4rem;
+}
+
+.controls button {
+  min-height: 3.2rem;
+  border: 0;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, var(--panel-strong), rgba(255, 255, 255, 0.06));
+  color: var(--text);
+  font-weight: 800;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.controls button:active {
+  transform: scale(0.97);
+}
+
+.controls button:first-child {
+  background: linear-gradient(145deg, var(--accent), #51a8ff);
+  color: #05111d;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+  border-radius: 1.2rem;
+  color: var(--muted);
+}
+
+.stats strong {
+  color: var(--text);
+}
+
+@media (min-width: 46rem) {
+  body {
+    overflow: auto;
+    touch-action: auto;
+  }
+
+  .app-shell {
+    height: auto;
+    min-height: 100vh;
+    padding-block: 2rem;
+  }
+
+  .play-card {
+    min-height: 32rem;
+  }
+}
